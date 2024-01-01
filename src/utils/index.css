@@ -1,0 +1,346 @@
+* {
+  box-sizing: border-box;
+  text-transform: capitalize;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-size: 16px;
+  font-family: "Outfit", sans-serif;
+}
+
+/* _______ Buttons __________ */
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  transition: all 200ms linear;
+  text-transform: uppercase;
+}
+
+button.black {
+  color: black;
+  background: transparent;
+  outline: 1px solid black;
+}
+button.black:hover {
+  color: white;
+  background-color: black;
+}
+
+button.green {
+  color: white;
+  background-color: #24d278;
+}
+button.green:hover {
+  color: #24d278;
+  background: transparent;
+  outline: 1px solid #24d278;
+}
+
+/* _______ Some Utility Css _____ */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* _________ */
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+#root .App {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: url("/public/images/hero-bg.jpg") no-repeat;
+  background-size: cover;
+}
+
+/* ____ Navbar Styling _____ */
+.App header {
+  height: 10vh;
+  position: relative;
+  padding: 1rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+  overflow: hidden;
+}
+
+header div {
+  font-size: larger;
+  gap: 1rem;
+}
+
+header button {
+  gap: 0.2rem;
+}
+
+button img {
+  min-width: 20px;
+  height: 20px;
+}
+
+button span {
+  font-size: 1rem;
+  color: white;
+}
+
+nav li {
+  list-style: none;
+  padding-right: 1rem;
+}
+
+li a {
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 200ms linear;
+}
+
+li a:hover {
+  color: #24d278;
+}
+
+.user-option form {
+  position: relative;
+}
+
+.user-option form input {
+  display: none;
+  position: absolute;
+  background: none;
+  padding: 0.5rem;
+  border: none;
+  border-bottom: 1px solid white;
+}
+
+button.custom-menu {
+  display: block;
+}
+
+button.custom-menu span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: #fff;
+  margin: 8.5px 0;
+  transition: all 0.3s;
+}
+
+button.custom-menu span.s-2 {
+  transition: all 0.1s;
+  width: 14px;
+  margin-left: auto;
+}
+
+/* ________ Landing Page __________ */
+.App main.hero_area {
+  height: 90vh;
+  overflow: hidden;
+}
+.hero_area::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 45%;
+  height: 100%;
+  background-image: url("/public/images/hero-side-bg.png");
+  background-size: cover;
+}
+
+.play_button .bg-play-button {
+  position: absolute;
+  animation: smooth 1500ms infinite;
+  border-radius: 50%;
+  background-color: #24d278;
+  top: 56%;
+  right: 30%;
+  width: 60px;
+  height: 60px;
+  z-index: 1;
+}
+
+.play_button .play {
+  position: absolute;
+  top: 56%;
+  right: 30%;
+  width: 60px;
+  height: 60px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: inset 0px 0px 10px rgba(180, 180, 180, 0.575);
+  z-index: 7;
+}
+
+@keyframes smooth {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
+
+.hero_area .carousel-wrapper {
+  height: 100%;
+  width: 100%;
+  margin: 0 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 9;
+}
+
+.carousel-wrapper .carousel-item-details {
+  flex: 1;
+  padding: 1rem;
+}
+
+.carousel-item-details h1,
+h2 {
+  margin: 0;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+.carousel-item-details h1 {
+  font-size: 5rem;
+}
+.carousel-item-details h2 {
+  color: #24d278;
+  font-size: 2.5rem;
+}
+.carousel-item-details .btn-box {
+  margin-top: 3rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-box button {
+  padding: 0.6rem 1rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.carousel-wrapper .item {
+  padding: 0 1rem;
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 5;
+}
+
+.number_box {
+  color: white;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 50%;
+  right: 2.5rem;
+  z-index: 1;
+}
+.number_box::before {
+  content: "";
+  width: 30px;
+  height: 1px;
+  background-color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.about_section {
+  height: 100vh;
+  position: relative;
+  padding: 6rem 0;
+}
+
+.about_section div:first-child {
+  padding: 4rem;
+  flex: 1;
+}
+
+div:first-child h1 {
+  font-weight: 400;
+}
+
+h1 span {
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #24d278;
+}
+div:first-child button {
+  padding: 0.5rem 0.6rem;
+  border-radius: 20px;
+}
+.about_section div:last-child {
+  padding: 0 1rem;
+  flex: 1;
+}
+
+/* Carosusel  */
+
+/* _____Carousel Styles_______ */
+
+.carousel-wrapper .carousel-items {
+  display: flex;
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-items .carousel-item {
+  flex-shrink: 0;
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+/* Carousel Navigation Button Styles */
+.carousel-wrapper .carousel-controls {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 1rem 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border: none;
+}
+
+/* Pagination Indicators Styles */
+.carousel-wrapper .pagination-indicators {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pagination-indicators .pagination-indicator {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 50%;
+  width: 0.8rem;
+  height: 0.8rem;
+  margin: 0 0.2rem;
+}
+
+.carousel-wrapper .pagination-indicator.active {
+  background-color: #fff;
+}
