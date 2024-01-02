@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Search from "./Search";
 
-const Navbar = () => {
+const Header = () => {
+  const [active, setActive] = useState(false);
+
   return (
     <header>
-      <div className="flex-center">
-        <img src="./images/Logo.png" alt="digitf" />
-        <nav className="flex-center">
+      <img src="./images/Logo.png" alt="digitf" />
+      <nav className={active ? "active" : ""}>
+        <ul className="flex-center">
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -23,27 +25,28 @@ const Navbar = () => {
           <li>
             <Link to="/contact-us">Contact Us</Link>
           </li>
-        </nav>
-      </div>
+        </ul>
 
-      <div className="flex-center">
         <div className="user-option flex-center">
           <button className="flex-center">
-            <img src="./images/user.png" alt="user-logo" />
+            <span className="material-symbols-rounded">person</span>
             <span>Login</span>
           </button>
 
           <Search />
         </div>
+      </nav>
 
-        <button className="custom-menu">
-          <span className="s-1"></span>
-          <span className="s-2"></span>
-          <span className="s-3"></span>
-        </button>
-      </div>
+      <button
+        className={`custom-menu ${!active ? "closed" : "opened"}`}
+        onClick={() => setActive(!active)}
+      >
+        <span className="s-1"></span>
+        <span className="s-2"></span>
+        <span className="s-3"></span>
+      </button>
     </header>
   );
 };
 
-export default Navbar;
+export default Header;

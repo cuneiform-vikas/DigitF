@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { carousel_data } from "../data";
 
-const Carousel = ({ num, setNum, autoplayInterval, showIndicators = true }) => {
+const Carousel = ({ autoplayInterval, showIndicators = true }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleNext = useCallback(() => {
@@ -41,51 +41,43 @@ const Carousel = ({ num, setNum, autoplayInterval, showIndicators = true }) => {
         className={`pagination-indicator ${
           index === activeIndex ? "active" : ""
         }`}
-        onClick={() => {
-          setActiveIndex(index);
-          setNum(index);
-        }}
+        onClick={() => setActiveIndex(index)}
       ></button>
     ));
   };
   return (
-    <section
-      className="carousel-wrapper"
-      onKeyDown={handleKeyDown}
-      tabIndex="0"
-      aria-live="polite"
-      aria-roledescription="carousel"
-    >
-      <div
-        className="carousel-items"
-        style={{ transform: `translateX(${currentTransform}%)` }}
-      >
-        {carousel_data.map((item, i) => (
-          <>
-            <div className="carousel-item-details">
-              <h2>{item.subtitle}</h2>
-              <h1>{item.title}</h1>
-              <p>{item.desc}</p>
-              <div className="btn-box">
-                <button className="green">Read More</button>
-                <button className="black">Contact Us</button>
+      <section className="carousel-wrapper" onKeyDown={handleKeyDown}>
+        <div className="number_box">{activeIndex + 1}</div>
+        <div
+          className="carousel-items"
+          style={{ transform: `translateX(${currentTransform}%)` }}
+        >
+          {carousel_data.map((item, i) => (
+            <div className="carousel-item" key={i}>
+              <div className="carousel-item-details">
+                <h2>{item.subtitle}</h2>
+                <h1>{item.title}</h1>
+                <p>{item.desc}</p>
+                <div className="btn-box">
+                  <button className="green">Read More</button>
+                  <button className="black">Contact Us</button>
+                </div>
+              </div>
+
+              <div className="item-image">
+                <img src={item.img} alt="" />
               </div>
             </div>
-
-            <div className="item">
-              <img src={item.img} alt="" />
-            </div>
-          </>
-        ))}
-      </div>
-
-      {/* _____pagination indicator function_____ */}
-      {showIndicators && (
-        <div className="pagination-indicators">
-          {renderPaginationIndicatiors()}
+          ))}
         </div>
-      )}
-    </section>
+
+        {/* _____pagination indicator function_____ */}
+        {showIndicators && (
+          <div className="pagination-indicators">
+            {renderPaginationIndicatiors()}
+          </div>
+        )}
+      </section>
   );
 };
 

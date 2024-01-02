@@ -6,6 +6,7 @@
 html {
   scroll-behavior: smooth;
 }
+
 html,
 body {
   width: 100%;
@@ -18,23 +19,61 @@ body {
   font-family: "Outfit", sans-serif;
 }
 
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+#root .App {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.material-symbols-rounded {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+/* Background Added */
+.background {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 45%;
+  height: 100%;
+  background-image: url("/public/images/hero-side-bg.png");
+  background-size: cover;
+  z-index: -1;
+}
+
+.container {
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+}
+
 /* _______ Buttons __________ */
 button {
   background: none;
   border: none;
-  padding: 0;
   transition: all 200ms linear;
   text-transform: uppercase;
+  padding: 0.6rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
 button.black {
+  color: white;
+  background-color: black;
+}
+button.black:hover {
   color: black;
   background: transparent;
   outline: 1px solid black;
-}
-button.black:hover {
-  color: white;
-  background-color: black;
 }
 
 button.green {
@@ -47,6 +86,29 @@ button.green:hover {
   outline: 1px solid #24d278;
 }
 
+button img {
+  min-width: 20px;
+  height: 20px;
+}
+
+/* Some global style for elements */
+h1 {
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+}
+
+h1 span {
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #24d278;
+}
+
+ul li {
+  list-style: none;
+}
+
 /* _______ Some Utility Css _____ */
 .flex-center {
   display: flex;
@@ -54,64 +116,49 @@ button.green:hover {
   justify-content: center;
 }
 
-/* _________ */
-#root {
-  width: 100%;
-  height: 100%;
+.layout-padding {
+  padding: 6rem 0;
 }
 
-#root .App {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  background: url("/public/images/hero-bg.jpg") no-repeat;
-  background-size: cover;
-}
-
-/* ____ Navbar Styling _____ */
+/* ____ Header Styles _____ */
 .App header {
-  height: 10vh;
   position: relative;
+  height: 70px;
   padding: 1rem 2.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 1;
-  overflow: hidden;
-}
-
-header div {
-  font-size: larger;
   gap: 1rem;
+  overflow: hidden;
+  z-index: 1;
 }
 
-header button {
-  gap: 0.2rem;
+header nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  transform: translateX(200%);
+  transition: all linear 200ms 50ms;
 }
 
-button img {
-  min-width: 20px;
-  height: 20px;
+nav.active {
+  transform: translateX(0);
 }
 
-button span {
+header button span {
   font-size: 1rem;
   color: white;
 }
 
-nav li {
-  list-style: none;
-  padding-right: 1rem;
-}
-
-li a {
+nav li a {
   color: black;
   text-decoration: none;
   text-transform: uppercase;
   transition: color 200ms linear;
+  padding-right: 1rem;
 }
 
-li a:hover {
+nav li a:hover {
   color: #24d278;
 }
 
@@ -130,6 +177,7 @@ li a:hover {
 
 button.custom-menu {
   display: block;
+  margin: 2px;
 }
 
 button.custom-menu span {
@@ -137,57 +185,67 @@ button.custom-menu span {
   width: 24px;
   height: 3px;
   background-color: #fff;
-  margin: 8.5px 0;
-  transition: all 0.3s;
+  margin: 5px 0;
+  transition: all 100ms;
 }
 
 button.custom-menu span.s-2 {
-  transition: all 0.1s;
+  transition: all 100ms;
   width: 14px;
   margin-left: auto;
 }
 
-/* ________ Landing Page __________ */
-.App main.hero_area {
-  height: 90vh;
-  overflow: hidden;
+.opened {
+  position: relative;
 }
-.hero_area::after {
-  content: "";
+
+.opened span.s-2 {
+  position: relative;
+  left: 100px;
+}
+
+.opened span.s-1 {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 45%;
-  height: 100%;
-  background-image: url("/public/images/hero-side-bg.png");
-  background-size: cover;
+  top: 10px;
+  left: 10px;
+  transform: rotate(45deg);
+}
+
+.opened span.s-3 {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  transform: rotate(-45deg);
+}
+
+/* ________ Home Page Styles __________ */
+.App main.hero_area {
+  height: calc(90% - 70px);
+  width: 100%;
 }
 
 .play_button .bg-play-button {
-  position: absolute;
-  animation: smooth 1500ms infinite;
-  border-radius: 50%;
+  animation: spread 1500ms infinite;
   background-color: #24d278;
-  top: 56%;
-  right: 30%;
-  width: 60px;
-  height: 60px;
-  z-index: 1;
 }
 
-.play_button .play {
+.bg-play-button,
+.play {
+  width: 60px;
+  height: 60px;
   position: absolute;
-  top: 56%;
-  right: 30%;
-  width: 60px;
-  height: 60px;
-  background-color: #fff;
+  bottom: 28%;
+  right: 32%;
   border-radius: 50%;
+  border-radius: 50%;
+}
+.play_button .play {
+  background-color: #fff;
   box-shadow: inset 0px 0px 10px rgba(180, 180, 180, 0.575);
-  z-index: 7;
+  z-index: 2;
 }
 
-@keyframes smooth {
+@keyframes spread {
   0% {
     transform: scale(1);
   }
@@ -196,19 +254,46 @@ button.custom-menu span.s-2 {
   }
 }
 
-.hero_area .carousel-wrapper {
+.number_box {
+  color: white;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 50%;
+  right: 2.5rem;
+  z-index: 2;
+}
+.number_box::before {
+  content: "";
+  width: 30px;
+  height: 1px;
+  background-color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Carousel Styles */
+.container .carousel-wrapper {
   height: 100%;
   width: 100%;
-  margin: 0 5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 9;
 }
 
-.carousel-wrapper .carousel-item-details {
-  flex: 1;
-  padding: 1rem;
+.carousel-wrapper .carousel-items {
+  width: 100%;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-items .carousel-item {
+  flex-shrink: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .carousel-item-details h1,
@@ -230,117 +315,313 @@ h2 {
   gap: 1rem;
 }
 
-.btn-box button {
-  padding: 0.6rem 1rem;
-  border-radius: 20px;
-  text-transform: uppercase;
-}
-
-.carousel-wrapper .item {
-  padding: 0 1rem;
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  z-index: 5;
-}
-
-.number_box {
-  color: white;
-  font-size: 1.5rem;
-  position: absolute;
-  top: 50%;
-  right: 2.5rem;
-  z-index: 1;
-}
-.number_box::before {
-  content: "";
-  width: 30px;
-  height: 1px;
-  background-color: #ffffff;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.about_section {
-  height: 100vh;
-  position: relative;
-  padding: 6rem 0;
-}
-
-.about_section div:first-child {
-  padding: 4rem;
-  flex: 1;
-}
-
-div:first-child h1 {
-  font-weight: 400;
-}
-
-h1 span {
-  display: block;
-  width: 50px;
-  height: 3px;
-  background-color: #24d278;
-}
-div:first-child button {
-  padding: 0.5rem 0.6rem;
-  border-radius: 20px;
-}
-.about_section div:last-child {
-  padding: 0 1rem;
-  flex: 1;
-}
-
-/* Carosusel  */
-
-/* _____Carousel Styles_______ */
-
-.carousel-wrapper .carousel-items {
-  display: flex;
-  width: 100%;
-  transition: transform 0.5s ease-in-out;
-}
-
-.carousel-items .carousel-item {
-  flex-shrink: 0;
-  width: 100%;
-  height: 450px;
-  object-fit: cover;
-  overflow: hidden;
-}
-
-/* Carousel Navigation Button Styles */
-.carousel-wrapper .carousel-controls {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 1rem 0.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: white;
-  border: none;
-}
-
 /* Pagination Indicators Styles */
 .carousel-wrapper .pagination-indicators {
   position: absolute;
-  bottom: 1rem;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 1;
 }
 
 .pagination-indicators .pagination-indicator {
-  background-color: rgba(255, 255, 255, 0.5);
+  padding: 0.5rem;
+  background-color: #24d278;
   border: none;
   border-radius: 50%;
-  width: 0.8rem;
-  height: 0.8rem;
+  width: 1rem;
+  height: 1rem;
   margin: 0 0.2rem;
 }
 
 .carousel-wrapper .pagination-indicator.active {
-  background-color: #fff;
+  background-color: #252525;
+}
+
+/* _____ About Section Styles ____ */
+.about_section {
+  position: relative;
+}
+
+.about_section .about-detail {
+  padding: 4rem;
+  flex: 1 1 70%;
+}
+
+.about-image img {
+  width: 100%;
+  min-width: 240px;
+  flex: 1 1 30%;
+}
+
+/* _____ Furniture Section ________ */
+.furniture_section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #f4f5f7;
+}
+
+.furniture_section .accordian_images {
+  gap: 1rem;
+}
+
+.accordian_images .box {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.accordian_images .box.b-1 {
+  padding-top: 2rem;
+}
+
+.accordian_images .image-box {
+  margin: 0 1rem;
+}
+.accordian_images .image-box img {
+  width: 100%;
+  max-width: 224px;
+}
+
+.furniture_section .details_box {
+  padding: 0 1rem;
+}
+
+.furniture_section .t-link-box {
+  margin: 2rem 0;
+  color: #24d278;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.t-link-box h1 {
+  margin: 0;
+}
+
+.t-link-box h1:last-child {
+  margin-left: 2rem;
+}
+
+/* _______ Discount Section _____ */
+.discount_section .image-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 40%;
+}
+.image-box img {
+  width: 100%;
+  max-width: fit-content;
+}
+
+.discount_section .detail-box {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  flex: 1 1 60%;
+}
+
+.detail-box h2.main-heading {
+  font-size: 3rem;
+  color: #24d278;
+}
+.detail-box button {
+  width: fit-content;
+  align-self: center;
+  margin: 1rem 0;
+}
+
+/* __________ Featured Products Section _____ */
+.featured_products .brand-container {
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.featured_products button {
+  margin: 1rem;
+}
+
+.brand_box {
+  position: relative;
+  text-align: center;
+  background-color: #e4e5e9;
+  padding: 2rem 1rem;
+  margin: 1rem 0.8rem 0 1rem;
+  max-width: 230px;
+}
+
+.brand_box img {
+  width: 100%;
+  min-width: 200px;
+}
+
+.brand_box h6 {
+  margin: 0 0 8px 0;
+  font-weight: 400;
+  font-size: large;
+}
+.brand_box span {
+  background-color: black;
+  color: #24d278;
+  padding: 0.4rem 1.2rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.brand_box:hover {
+  color: #252525;
+  background-color: #24d278;
+}
+
+/* _____ Container Form _______ */
+.contact_section .contact-container {
+  display: flex;
+  gap: 1rem;
+}
+.contact-container form {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 3rem 0 1rem;
+}
+
+form input,
+textarea {
+  border: none;
+  outline: none;
+  color: #101010;
+  height: 3rem;
+  width: 100%;
+  padding: 0.6rem;
+  margin: 1.5rem 0;
+  background-color: transparent;
+  box-shadow: 0px 2px 5px 0px #00000029;
+}
+
+form .message-box {
+  height: 7rem;
+}
+
+form button {
+  width: fit-content;
+  padding: 1rem 2rem;
+  border-radius: 28px;
+}
+
+.contact-container .map {
+  flex: 1 1 50%;
+  padding: 0 1rem;
+}
+
+.map iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* _____ Testimonial Section ______ */
+.client_section {
+  padding-bottom: 6rem;
+}
+
+.client_section .client-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.client-container .client {
+  width: fit-content;
+  padding: 1.5rem;
+  max-width: 500px;
+  margin: 2rem;
+  box-shadow: 0px 0px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.client-info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.name {
+  padding-left: 1rem;
+}
+.name h2 {
+  margin: 0 0 0.6rem 0;
+  padding: 0;
+  font-weight: 600;
+}
+
+.name h3 {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  color: #24d278;
+}
+
+.arrow {
+  width: 24px;
+}
+
+.client:hover {
+  box-shadow: none;
+  background-color: #f3f3f3;
+}
+.client:hover .arrow {
+  color: #24d278;
+}
+
+footer {
+  padding: 3rem 0;
+  background-color: #0f1521;
+  color: #fff;
+}
+
+.info-logo {
+  width: 80%;
+  margin: 0 auto 45px auto;
+  padding-bottom: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ffffff;
+}
+
+.info {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 1rem;
+}
+.info-section .info-logo h2 {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.footer-details {
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+
+.footer-details h5 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.img-box {
+  width: 35px;
+  display: flex;
+  justify-content: center;
+}
+.info_contact div {
+  display: flex;
+  align-items: center;
+}
+
+.insta_container {
+  display: flex;
+  align-items: center;
 }

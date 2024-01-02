@@ -20,7 +20,7 @@ const Search = () => {
       />
 
       <button type="submit" onClick={() => setOpen(!open)}>
-        <img src="/images/search-icon.png" alt="" />
+        <img src="/svg/search-outline.svg" alt="" />
       </button>
     </form>
   );

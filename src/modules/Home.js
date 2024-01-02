@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import About from "./About";
 import Carousel from "../components/Carousel";
+import Furniture from "./Furniture";
+import Discount from "./Discount";
+import Featured from "./Featured";
+import Contact from "./Contact";
+import Testimonials from "./Testimonials";
+import Footer from "../components/Footer";
 
 const Home = () => {
-  const [num, setNum] = useState(1);
-
   return (
     <main className="hero_area">
       <div className="play_button">
@@ -14,10 +18,19 @@ const Home = () => {
         <span className="bg-play-button"></span>
       </div>
 
-      <div className="number_box">{num}</div>
-      <Carousel autoplayInterval={3000} num={num} setNum={setNum} />
+      <div className="container">
+        <Carousel autoplayInterval={2000} />
+      </div>
 
-      <About />
+      <div style={{ position: "relative" }}>
+        <About />
+        <Furniture />
+        <Discount />
+        <Featured />
+        <Contact />
+        <Testimonials />
+        <Footer />
+      </div>
     </main>
   );
 };

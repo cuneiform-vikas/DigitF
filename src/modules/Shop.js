@@ -1,9 +1,11 @@
-import React from 'react'
-
+import React from "react";
+import Featured from "./Featured";
 const Shop = () => {
   return (
-    <div>Shop</div>
-  )
-}
+    <div>
+      <Featured />
+    </div>
+  );
+};
 
-export default Shop
+export default Shop;

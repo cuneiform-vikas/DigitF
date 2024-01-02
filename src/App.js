@@ -1,14 +1,14 @@
 import React from "react";
-import { Outlet, RouterProvider } from "react-router-dom";
-import { router } from "./routes";
-import { Footer, Navbar } from "./components";
+import { Outlet } from "react-router-dom";
+import { Footer, Header } from "./components";
+import "./utils/App.css";
 
 const App = () => {
   return (
     <div className="App">
-      <Navbar />
+      <div className="background"></div>
+      <Header />
       <Outlet />
-      <Footer />
     </div>
   );
 };
