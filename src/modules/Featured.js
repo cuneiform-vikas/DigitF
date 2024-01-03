@@ -14,7 +14,7 @@ const Card = ({ product, img, isNew, price }) => {
 
 const Featured = () => {
   return (
-    <section className="featured_products container">
+    <section className="featured_products">
       <h1>
         Featured Brands <span></span>
       </h1>

@@ -34,7 +34,7 @@ const Client = ({ img, name, designation, desc }) => {
 
 const Testimonials = () => {
   return (
-    <section className="client_section container">
+    <section className="client_section">
       <h1 className="heading">
         Testimonials
         <span></span>

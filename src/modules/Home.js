@@ -6,7 +6,6 @@ import Discount from "./Discount";
 import Featured from "./Featured";
 import Contact from "./Contact";
 import Testimonials from "./Testimonials";
-import Footer from "../components/Footer";
 
 const Home = () => {
   return (
@@ -22,15 +21,12 @@ const Home = () => {
         <Carousel autoplayInterval={2000} />
       </div>
 
-      <div style={{ position: "relative" }}>
-        <About />
-        <Furniture />
-        <Discount />
-        <Featured />
-        <Contact />
-        <Testimonials />
-        <Footer />
-      </div>
+      <About />
+      <Furniture />
+      <Discount />
+      <Featured />
+      <Contact />
+      <Testimonials />
     </main>
   );
 };

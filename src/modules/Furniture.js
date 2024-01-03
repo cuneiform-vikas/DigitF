@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const furniture_data = [
   {
@@ -44,6 +44,8 @@ const furniture_data = [
 ];
 
 const Furniture = () => {
+  const [tab, setTab] = useState();
+  
   return (
     <section className="furniture_section layout-padding">
       <div className="details_box">
@@ -51,6 +53,7 @@ const Furniture = () => {
           Trending Categories
           <span></span>
         </h1>
+
         <div className="tab-container">
           {furniture_data.map((item) => (
             <div className="t-link-box" key={item.id}>

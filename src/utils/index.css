@@ -27,6 +27,7 @@ body {
 #root .App {
   width: 100%;
   height: 100%;
+  background: url("/public/images/hero-bg.jpg") no-repeat;
   position: relative;
 }
 
@@ -37,21 +38,17 @@ body {
 /* Background Added */
 .background {
   position: absolute;
-  bottom: 0;
   right: 0;
   width: 45%;
   height: 100%;
   background-image: url("/public/images/hero-side-bg.png");
   background-size: cover;
-  z-index: -1;
+  z-index: 0;
 }
 
 .container {
-  position: relative;
   overflow: hidden;
-  z-index: 2;
   width: 90%;
-  height: 100%;
   margin: 0 auto;
 }
 
@@ -75,7 +72,6 @@ button.black:hover {
   background: transparent;
   outline: 1px solid black;
 }
-
 button.green {
   color: white;
   background-color: #24d278;
@@ -94,6 +90,7 @@ button img {
 /* Some global style for elements */
 h1 {
   font-weight: 400;
+  font-size: 2rem;
   display: flex;
   align-items: center;
 }
@@ -162,9 +159,9 @@ nav li a:hover {
   color: #24d278;
 }
 
-.user-option form {
+/* .user-option form {
   position: relative;
-}
+} */
 
 .user-option form input {
   display: none;
@@ -206,23 +203,22 @@ button.custom-menu span.s-2 {
 
 .opened span.s-1 {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  bottom: 10px;
+  left: 0;
   transform: rotate(45deg);
 }
 
 .opened span.s-3 {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  bottom: 10px;
+  left: 0;
   transform: rotate(-45deg);
 }
 
 /* ________ Home Page Styles __________ */
-.App main.hero_area {
-  height: calc(90% - 70px);
-  width: 100%;
-}
+/* .App main.hero_area {
+  height: 100%;
+} */
 
 .play_button .bg-play-button {
   animation: spread 1500ms infinite;
@@ -258,7 +254,6 @@ button.custom-menu span.s-2 {
   color: white;
   font-size: 1.5rem;
   position: absolute;
-  top: 50%;
   right: 2.5rem;
   z-index: 2;
 }
@@ -276,15 +271,16 @@ button.custom-menu span.s-2 {
 /* Carousel Styles */
 .container .carousel-wrapper {
   height: 100%;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 .carousel-wrapper .carousel-items {
   width: 100%;
   display: flex;
+  min-height: 75vh;
   transition: transform 0.5s ease-in-out;
 }
 
@@ -302,6 +298,7 @@ h2 {
   font-weight: 300;
   text-transform: uppercase;
 }
+
 .carousel-item-details h1 {
   font-size: 5rem;
 }
@@ -318,7 +315,7 @@ h2 {
 /* Pagination Indicators Styles */
 .carousel-wrapper .pagination-indicators {
   position: absolute;
-  bottom: 0;
+  bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
@@ -360,6 +357,7 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  flex-wrap: wrap;
   background-color: #f4f5f7;
 }
 
@@ -412,6 +410,7 @@ h2 {
   justify-content: center;
   flex: 1 1 40%;
 }
+
 .image-box img {
   width: 100%;
   max-width: fit-content;
@@ -435,6 +434,10 @@ h2 {
 }
 
 /* __________ Featured Products Section _____ */
+.featured_products {
+  width: 90%;
+  margin: 0 auto;
+}
 .featured_products .brand-container {
   flex-wrap: wrap;
   gap: 1rem;
@@ -479,10 +482,16 @@ h2 {
 }
 
 /* _____ Container Form _______ */
+.contact_section {
+  width: 90%;
+  margin: 0 auto;
+}
 .contact_section .contact-container {
+  position: relative;
   display: flex;
   gap: 1rem;
 }
+
 .contact-container form {
   flex: 1 1 50%;
   display: flex;
@@ -507,7 +516,7 @@ form .message-box {
   height: 7rem;
 }
 
-form button {
+.contact-container form button {
   width: fit-content;
   padding: 1rem 2rem;
   border-radius: 28px;
@@ -526,20 +535,22 @@ form button {
 
 /* _____ Testimonial Section ______ */
 .client_section {
+  width: 90%;
+  margin: 0 auto;
   padding-bottom: 6rem;
 }
 
 .client_section .client-container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .client-container .client {
   width: fit-content;
   padding: 1.5rem;
-  max-width: 500px;
   margin: 2rem;
+  max-width: 500px;
   box-shadow: 0px 0px 20px 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -547,6 +558,10 @@ form button {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+}
+.client-info img {
+  width: 100%;
+  max-width: fit-content;
 }
 .name {
   padding-left: 1rem;
@@ -576,13 +591,14 @@ form button {
   color: #24d278;
 }
 
+/* ___ Footer _____ */
 footer {
   padding: 3rem 0;
   background-color: #0f1521;
   color: #fff;
 }
 
-.info-logo {
+footer .info-logo {
   width: 80%;
   margin: 0 auto 45px auto;
   padding-bottom: 10px;
@@ -590,21 +606,21 @@ footer {
   border-bottom: 1px solid #ffffff;
 }
 
-.info {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 1rem;
+footer .info {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 90%;
+  margin: 0 auto;
 }
+
 .info-section .info-logo h2 {
   text-transform: uppercase;
   font-weight: bold;
 }
 
 .footer-details {
-  flex: 0 0 25%;
-  max-width: 25%;
+  padding: 0 1rem;
 }
-
 .footer-details h5 {
   margin-bottom: 1.5rem;
   font-size: 1.5rem;
@@ -616,12 +632,40 @@ footer {
   display: flex;
   justify-content: center;
 }
+
 .info_contact div {
   display: flex;
   align-items: center;
 }
 
-.insta_container {
+.info_insta .insta_container {
+  width: fit-content;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.info_form form {
+  margin-bottom: 2rem;
+}
+
+.info_form form input {
+  background-color: white;
+}
+.info_form form button {
+  border-radius: 0;
+}
+.info_form .social_box {
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
+}
+
+/* ____ Copyright ___ */
+.copyright {
+  padding: 1rem;
+  margin: 0 auto;
+  text-align: center;
 }

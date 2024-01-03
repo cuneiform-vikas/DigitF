@@ -1,8 +1,9 @@
 import React from "react";
+import CopyRight from "../modules/CopyRight";
 
 const instabox = [
   {
-    src: "images/i-1.jpg",
+    src: "/images/i-1.jpg",
     link: "https://vikasparmar.vercel.app/",
   },
   {
@@ -28,8 +29,8 @@ const instabox = [
 ];
 const Footer = () => {
   return (
-    <footer className="info-section">
-      <div className="container">
+    <>
+      <footer className="info-section">
         <div className="info-logo">
           <h2>DigitF</h2>
         </div>
@@ -58,6 +59,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
+
           <div className="footer-details">
             <div className="info_info">
               <h5>Informations</h5>
@@ -72,18 +74,22 @@ const Footer = () => {
             <div className="info_insta">
               <h5>Instagram</h5>
               <div className="insta_container">
-                {/* { */}
-                {/* instabox.map() */}
-                {/* } */}
+                <img src="/images/i-1.jpg" />
+                <img src="/images/i-2.jpg" />
+                <img src="/images/i-3.jpg" />
+                <img src="/images/i-4.jpg" />
+                <img src="/images/i-5.jpg" />
+                <img src="/images/i-6.jpg" />
               </div>
             </div>
           </div>
+
           <div className="footer-details">
-            <div className="info_form ">
+            <div className="info_form">
               <h5>Newsletter</h5>
               <form action="">
                 <input type="email" placeholder="Enter your email" />
-                <button>Subscribe</button>
+                <button className="green"> Subscribe</button>
               </form>
               <div className="social_box">
                 <a href="">
@@ -102,8 +108,9 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+      <CopyRight />
+    </>
   );
 };
 
