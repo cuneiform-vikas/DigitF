@@ -72,3 +72,46 @@ export const brands_data = [
     isNew: false,
   },
 ];
+
+export const furniture_data = [
+  {
+    id: 0,
+    type: "Chairs",
+    images: [
+      "images/t-1.jpg",
+      "images/t-2.jpg",
+      "images/t-3.jpg",
+      "images/t-4.jpg",
+    ],
+  },
+  {
+    id: 1,
+    type: "Tables",
+    images: [
+      "images/t-2.jpg",
+      "images/t-3.jpg",
+      "images/t-4.jpg",
+      "images/t-1.jpg",
+    ],
+  },
+  {
+    id: 2,
+    type: "Bads",
+    images: [
+      "images/t-3.jpg",
+      "images/t-4.jpg",
+      "images/t-1.jpg",
+      "images/t-2.jpg",
+    ],
+  },
+  {
+    id: 3,
+    type: "Furnitures",
+    images: [
+      "images/t-1.jpg",
+      "images/t-3.jpg",
+      "images/t-2.jpg",
+      "images/t-4.jpg",
+    ],
+  },
+];
