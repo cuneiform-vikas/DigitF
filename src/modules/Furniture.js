@@ -4,7 +4,7 @@ import { furniture_data } from "../data";
 const Furniture = () => {
   const [activeTab, setActiveTab] = useState(0);
 
-  const currentTransform = -activeTab * 100;
+  const currentTransform = -activeTab * 525;
 
   const handleClick = (id) => {
     // setClicked(true);
@@ -20,10 +20,10 @@ const Furniture = () => {
         </h1>
 
         <div className="tab-container">
-          {furniture_data.map((item, i) => (
+          {furniture_data.map((item) => (
             <div className="t-link-box" key={item.id}>
               <h1>
-                {`0${i + 1}`}
+                {`0${item.id}`}
                 <span></span>
               </h1>
               <h1
@@ -40,7 +40,7 @@ const Furniture = () => {
       <div className="accordian">
         <div
           className="accordian-images"
-          style={{ transform: `translateY(${currentTransform}%)` }}
+          style={{ transform: `translateY(${currentTransform}px)` }}
         >
           {furniture_data.map((item, i) => (
             <div className="image_box" key={i}>
@@ -51,7 +51,6 @@ const Furniture = () => {
           ))}
         </div>
       </div>
-
       {/* <div className="accordian_images flex-center">
         <div className="box b-1">
           <div className="image-box">
